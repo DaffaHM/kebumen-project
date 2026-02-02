@@ -1,27 +1,33 @@
 /**
  * ======================================================
- * DOCUMENTATION (JS)
+ * main.js
  *
- * Fungsi-fungsi di file ini:
+ * Fungsi yang dipakai:
+ *
  * 1) initNewsTabs()
- *    - Section: NEWS (Section 4)
- *    - Fungsi: switch panel Berita vs Events + update link "Lihat Semua"
+ *    - Section: News (SECTION 4)
+ *    - Fungsi: switch tab Berita Terkini <-> Events Kebumen
+ *    - Elemen terkait:
+ *      .news-tab (button tab)
+ *      #panelNews (panel berita)
+ *      #panelEvents (panel events)
+ *      #newsSeeAll (link lihat semua)
  *
  * 2) setVhVar()
- *    - Section: HERO (Section 1)
- *    - Fungsi: fix bug 100vh di mobile (Chrome/Safari) dengan CSS variable --vh
+ *    - Section: Hero (SECTION 1)
+ *    - Fungsi: fix bug 100vh mobile dengan CSS var --vh
  *
  * 3) initHeroAnimation()
- *    - Section: HERO (Section 1)
- *    - Fungsi: memberi class "hero--ready" supaya konten fade-in
+ *    - Section: Hero (SECTION 1)
+ *    - Fungsi: fade-in konten hero (class .hero--ready)
  *
  * 4) initSearchDropdown()
- *    - Section: HERO (Search pill)
- *    - Fungsi: ganti label kategori berdasarkan dropdown
+ *    - Section: Hero Search Pill (SECTION 1)
+ *    - Fungsi: update teks kategori "Semua/Berita/Layanan/Dokumen"
  *
  * 5) preventSearchSubmitReload()
- *    - Section: HERO (Search form)
- *    - Fungsi: mencegah page reload saat submit (sementara)
+ *    - Section: Hero Search Pill (SECTION 1)
+ *    - Fungsi: mencegah reload page saat submit form
  * ======================================================
  */
 
@@ -39,6 +45,7 @@ function initNewsTabs() {
       btn.classList.add("is-active");
 
       const tab = btn.dataset.tab;
+
       if (tab === "events") {
         panelNews.classList.add("is-hidden");
         panelEvents.classList.remove("is-hidden");
@@ -82,9 +89,7 @@ function preventSearchSubmitReload() {
   if (form) form.addEventListener("submit", (e) => e.preventDefault());
 }
 
-/* ======================================================
-  BOOTSTRAP INIT
-====================================================== */
+/* ========== RUN ========== */
 window.addEventListener("resize", setVhVar);
 setVhVar();
 
